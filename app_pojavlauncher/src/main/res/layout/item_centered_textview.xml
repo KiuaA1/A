@@ -1,9 +1,5 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@android:id/text1"
-    style="?android:attr/spinnerItemStyle"
-    android:singleLine="true"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:ellipsize="marquee"
-    android:textAlignment="inherit"
-    android:gravity="center"/>
+    android:id="@android:id/text1" android:layout_width="match_parent" android:layout_height="@dimen/_48sdp"
+    android:singleLine="true" android:ellipsize="marquee" android:gravity="center"
+    android:textColor="@color/primary_text" android:textSize="@dimen/_13ssp"
+    android:background="@drawable/a_card"/>
