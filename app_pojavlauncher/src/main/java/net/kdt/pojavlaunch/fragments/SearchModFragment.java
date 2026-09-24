@@ -51,6 +51,7 @@ import java.io.OutputStream;
 public class SearchModFragment extends Fragment implements ModItemAdapter.SearchResultCallback {
 
     public static final String TAG = "SearchModFragment";
+    public static final String ARG_LOCAL_URI = "local_modpack_uri";
     private View mOverlay;
     private float mOverlayTopCache; // Padding cache reduce resource lookup
 
@@ -169,6 +170,14 @@ public class SearchModFragment extends Fragment implements ModItemAdapter.Search
         ProgressKeeper.addTaskCountListener(mTaskCountListener);
 
         searchMods(null);
+
+        Bundle args = getArguments();
+        if (args != null && args.getString(ARG_LOCAL_URI) != null) {
+            Uri localUri = Uri.parse(args.getString(ARG_LOCAL_URI));
+            Context context = requireContext();
+            ContentResolver resolver = context.getContentResolver();
+            PojavApplication.sExecutorService.execute(() -> performLocalInstall(localUri, context, resolver));
+        }
     }
 
     @Override
