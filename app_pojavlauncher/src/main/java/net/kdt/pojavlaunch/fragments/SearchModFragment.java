@@ -135,6 +135,7 @@ public class SearchModFragment extends Fragment implements ModItemAdapter.Search
         mRecyclerview = view.findViewById(R.id.search_mod_list);
         mStatusTextView = view.findViewById(R.id.search_mod_status_text);
         mFilterButton = view.findViewById(R.id.search_mod_filter);
+        view.findViewById(R.id.search_mod_back).setOnClickListener(v -> getParentFragmentManager().popBackStack());
 
         mDefaultTextColor = mStatusTextView.getTextColors();
 
