@@ -7,7 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -56,7 +56,7 @@ public class MainMenuFragment extends Fragment {
         Button mOpenDirectoryButton = view.findViewById(R.id.open_files_button);
 
         ImageButton mEditProfileButton = view.findViewById(R.id.edit_profile_button);
-        Button mPlayButton = view.findViewById(R.id.play_button);
+        View mPlayButton = view.findViewById(R.id.play_button);
         mVersionSpinner = view.findViewById(R.id.mc_version_spinner);
 
         mNewsButton.setOnClickListener(v -> Tools.openURL(requireActivity(), Tools.URL_HOME));
