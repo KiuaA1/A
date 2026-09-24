@@ -6,6 +6,7 @@ import android.os.*;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.*;
+import git.artdeell.mojo.R;
 import net.kdt.pojavlaunch.utils.*;
 
 import static net.kdt.pojavlaunch.prefs.LauncherPreferences.PREF_IGNORE_NOTCH;
@@ -23,6 +24,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         LocaleUtils.setLocale(this);
         Tools.setInsetsMode(this, setFullscreen(), shouldIgnoreNotch());
         Tools.getDisplayMetrics(this);
+        applyAWindowChrome();
+    }
+
+    private void applyAWindowChrome() {
+        getWindow().setStatusBarColor(getColor(R.color.a_background_top));
+        getWindow().setNavigationBarColor(getColor(R.color.a_background_bottom));
     }
 
     /** @return Whether the activity should be set as a fullscreen one */
