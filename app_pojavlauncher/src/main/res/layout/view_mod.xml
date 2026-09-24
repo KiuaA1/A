@@ -1,84 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_6sdp"
     android:background="@drawable/a_card"
-    android:paddingHorizontal="@dimen/_8sdp"
-    android:paddingVertical="@dimen/_8sdp"
-    android:layout_marginVertical="@dimen/_4sdp"
-    >
+    android:padding="@dimen/_10sdp">
 
     <ImageView
         android:id="@+id/mod_thumbnail_imageview"
-        android:layout_width="@dimen/_65sdp"
-        android:layout_height="@dimen/_65sdp"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        tools:src="@mipmap/ic_launcher_foreground"
-        />
-
-    <ImageView
-        android:id="@+id/mod_source_imageview"
-        android:layout_width="@dimen/_13sdp"
-        android:layout_height="@dimen/_13sdp"
-        android:layout_marginTop="3dp"
-
-        android:layout_marginEnd="3dp"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_96sdp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@mipmap/ic_launcher_foreground" />
 
+    <ImageView
+        android:id="@+id/mod_source_imageview"
+        android:layout_width="@dimen/_28sdp"
+        android:layout_height="@dimen/_28sdp"
+        android:layout_margin="@dimen/_8sdp"
+        android:padding="@dimen/_5sdp"
+        android:background="@drawable/a_pill"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="@id/mod_thumbnail_imageview"
+        app:layout_constraintTop_toTopOf="@id/mod_thumbnail_imageview"
+        tools:src="@drawable/ic_modrinth" />
+
     <TextView
         android:id="@+id/mod_title_textview"
-        android:textColor="@color/primary_text" android:textSize="@dimen/_14ssp" android:textStyle="bold"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:maxLines="2"
         android:ellipsize="end"
-
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintEnd_toStartOf="@+id/mod_source_imageview"
-        app:layout_constraintStart_toEndOf="@+id/mod_thumbnail_imageview"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Feed the beast - Reforged" />
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/_14ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mod_thumbnail_imageview"
+        tools:text="Fabulously Optimized" />
 
     <TextView
         android:id="@+id/mod_body_textview"
-        android:textColor="@color/secondary_text" android:textSize="@dimen/_12ssp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:ellipsize="end"
+        android:layout_marginTop="@dimen/_4sdp"
         android:maxLines="3"
-
+        android:ellipsize="end"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/_11ssp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/mod_title_textview"
-        app:layout_constraintTop_toBottomOf="@+id/mod_title_textview"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.0"
-        tools:text="Feed the beast - Reforged is a machine and magic focused modpack, with no respect for the minimum requirements of minecraft. Very long text" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mod_title_textview"
+        tools:text="Beautiful graphics, speedy performance and familiar features in a simple package." />
 
-
-    <!--
-        When clicked for the first time, the view is extended with more information.
-        Inflating later is cheaper, hence the stub
-     -->
     <ViewStub
         android:id="@+id/mod_limited_state_stub"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout="@layout/view_mod_extended"
-        app:layout_constraintTop_toBottomOf="@id/mod_thumbnail_imageview"/>
-
-
-
+        app:layout_constraintTop_toBottomOf="@id/mod_body_textview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
