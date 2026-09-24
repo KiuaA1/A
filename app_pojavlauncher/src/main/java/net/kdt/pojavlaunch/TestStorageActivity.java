@@ -57,7 +57,7 @@ public class TestStorageActivity extends Activity {
         mPermissionRequestDialog.getWindow(); 
         mPermissionRequestDialog.setOnShowListener(d -> {
             if (mPermissionRequestDialog.getWindow() != null) mPermissionRequestDialog.getWindow().setBackgroundDrawableResource(R.drawable.a_dialog);
-            android.widget.TextView title = mPermissionRequestDialog.findViewById(android.R.id.alertTitle);
+            android.widget.TextView title = mPermissionRequestDialog.findViewById(androidx.appcompat.R.id.alertTitle);
             android.widget.TextView message = mPermissionRequestDialog.findViewById(android.R.id.message);
             android.widget.Button button = mPermissionRequestDialog.findViewById(android.R.id.button1);
             if (title != null) title.setTextColor(ContextCompat.getColor(this, R.color.primary_text));
