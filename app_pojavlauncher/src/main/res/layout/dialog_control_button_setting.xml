@@ -7,8 +7,8 @@
     android:id="@+id/edit_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingHorizontal="@dimen/padding_moderate"
-    android:paddingVertical="@dimen/padding_moderate"
+    android:paddingHorizontal="@dimen/_14sdp" android:background="@drawable/a_card"
+    android:paddingVertical="@dimen/_14sdp"
     app:layout_optimizationLevel="standard|dimensions|chains">
 
 
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:paddingEnd="5dp"
-        android:text="@string/global_name"
+        style="@style/ASectionLabel" android:text="@string/global_name"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:paddingEnd="5dp"
-        android:text="@string/customctrl_size"
+        style="@style/ASectionLabel" android:text="@string/customctrl_size"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editName_editText"
@@ -93,7 +93,7 @@
         android:layout_height="wrap_content"
 
         android:paddingEnd="5dp"
-        android:text="@string/customctrl_mapping"
+        style="@style/ASectionLabel" android:text="@string/customctrl_mapping"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editSize_editTextX" />
@@ -264,7 +264,7 @@
         android:layout_marginTop="@dimen/_2sdp"
         android:gravity="center"
         android:paddingEnd="5dp"
-        android:text="@string/customctrl_orientation"
+        style="@style/ASectionLabel" android:text="@string/customctrl_orientation"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mapping_3_textview" />
