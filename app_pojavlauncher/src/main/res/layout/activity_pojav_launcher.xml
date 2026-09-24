@@ -30,7 +30,7 @@
         android:padding="@dimen/_12sdp"
         android:src="@drawable/ic_px_sliders"
         android:tint="@color/primary_text"
-        android:contentDescription="@string/settings"
+        android:contentDescription="Settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
