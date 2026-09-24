@@ -5,10 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/background_line"
-    android:paddingHorizontal="@dimen/_2sdp"
-    android:paddingVertical="@dimen/_2sdp"
-    android:layout_marginVertical="@dimen/padding_medium"
+    android:background="@drawable/a_card"
+    android:paddingHorizontal="@dimen/_8sdp"
+    android:paddingVertical="@dimen/_8sdp"
+    android:layout_marginVertical="@dimen/_4sdp"
     >
 
     <ImageView
@@ -36,11 +36,11 @@
 
     <TextView
         android:id="@+id/mod_title_textview"
-        style="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/primary_text" android:textSize="@dimen/_14ssp" android:textStyle="bold"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:maxLines="1"
-        android:layout_marginStart="@dimen/padding_moderate"
+        android:layout_marginStart="@dimen/_10sdp"
         android:ellipsize="end"
 
         app:layout_constraintHorizontal_bias="0.0"
@@ -51,11 +51,11 @@
 
     <TextView
         android:id="@+id/mod_body_textview"
-        style="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/secondary_text" android:textSize="@dimen/_12ssp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/padding_medium"
-        android:layout_marginEnd="@dimen/padding_medium"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
         android:ellipsize="end"
         android:maxLines="3"
 
