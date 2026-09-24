@@ -114,7 +114,7 @@ public class RTRecyclerViewAdapter extends RecyclerView.Adapter<RTRecyclerViewAd
                     dialog.setOnShowListener(ignored -> {
                         if (dialog.getWindow() != null)
                             dialog.getWindow().setBackgroundDrawableResource(R.drawable.a_dialog);
-                        TextView title = dialog.findViewById(android.R.id.alertTitle);
+                        TextView title = dialog.findViewById(androidx.appcompat.R.id.alertTitle);
                         if (title != null) title.setTextColor(ContextCompat.getColor(mContext, R.color.primary_text));
                         TextView message = dialog.findViewById(android.R.id.message);
                         if (message != null) message.setTextColor(ContextCompat.getColor(mContext, R.color.secondary_text));
