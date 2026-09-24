@@ -1,85 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_app">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/gamepad_remapper_recycler"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:textColor="?android:attr/textColorPrimary"
-            android:text="@string/controller_remapper_exit_part1" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="30sp"
-            android:layout_height="30sp"
-            android:layout_gravity="center_vertical"
-            android:contentDescription="@string/controller_button_select"
-            app:srcCompat="@drawable/button_select" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:textColor="?android:attr/textColorPrimary"
-            android:text="@string/controller_remapper_exit_part2" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/gamepad_remapper_mode_container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="@dimen/padding_heavy"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/gamepad_remapper_mode_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/controller_remapper_operating_mode"
-            android:textColor="?android:attr/textColorPrimary" />
-
-        <Spinner
-            android:id="@+id/gamepad_remapper_mode_spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp" />
-    </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/gamepad_remapper_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/padding_heavy"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gamepad_remapper_mode_container" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@drawable/a_background" android:padding="@dimen/_14sdp">
+ <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:padding="@dimen/_10sdp" android:background="@drawable/a_card">
+  <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/controller_remapper_exit_part1" android:textColor="@color/primary_text"/>
+  <ImageView android:id="@+id/imageView2" android:layout_width="@dimen/_30sdp" android:layout_height="@dimen/_30sdp" android:layout_marginHorizontal="@dimen/_6sdp" android:contentDescription="@string/controller_button_select" app:srcCompat="@drawable/button_select"/>
+  <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/controller_remapper_exit_part2" android:textColor="@color/primary_text"/>
+ </LinearLayout>
+ <LinearLayout android:id="@+id/gamepad_remapper_mode_container" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="@dimen/_10sdp" android:padding="@dimen/_10sdp" android:background="@drawable/a_card">
+  <TextView android:id="@+id/gamepad_remapper_mode_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/controller_remapper_operating_mode" style="@style/ASectionLabel"/>
+  <Spinner android:id="@+id/gamepad_remapper_mode_spinner" android:layout_width="match_parent" android:layout_height="@dimen/_48sdp" android:background="@drawable/a_outline_button" android:minHeight="@dimen/_48sdp"/>
+ </LinearLayout>
+ <androidx.recyclerview.widget.RecyclerView android:id="@+id/gamepad_remapper_recycler" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="@dimen/_10sdp"/>
+</LinearLayout>
