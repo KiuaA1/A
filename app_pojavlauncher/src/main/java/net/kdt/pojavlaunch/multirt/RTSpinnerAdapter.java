@@ -67,6 +67,11 @@ public class RTSpinnerAdapter implements SpinnerAdapter {
                     runtime.versionString == null ? view.getResources().getString(R.string.multirt_runtime_corrupt) : runtime.versionString));
         }
 
+        TextView textView = (TextView) view;
+        textView.setTextColor(mContext.getColor(R.color.primary_text));
+        textView.setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen._13ssp));
+        textView.setPadding(mContext.getResources().getDimensionPixelSize(R.dimen._14sdp), mContext.getResources().getDimensionPixelSize(R.dimen._10sdp), mContext.getResources().getDimensionPixelSize(R.dimen._14sdp), mContext.getResources().getDimensionPixelSize(R.dimen._10sdp));
+        textView.setBackgroundResource(R.drawable.a_list_item);
         return view;
     }
 
