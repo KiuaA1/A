@@ -102,9 +102,11 @@ public class FileListAdapter extends BaseAdapter {
         View row = convertView;
 
         if (row == null)
-            row = mInflater.inflate(android.R.layout.simple_list_item_1, parent, false);
+            row = mInflater.inflate(R.layout.item_a_drawer_action, parent, false);
 
         TextView view = (TextView) row;
+        view.setTextColor(parent.getContext().getColor(R.color.primary_text));
+        view.setAllCaps(false);
 
         // Get the file at the current position
         final File file = getItem(position);
@@ -115,7 +117,7 @@ public class FileListAdapter extends BaseAdapter {
         // If the item is not a directory, use the file icon
         int icon = file.isDirectory() ? ICON_FOLDER : ICON_FILE;
         view.setCompoundDrawablesWithIntrinsicBounds(icon, 0, 0, 0);
-        view.setCompoundDrawablePadding(20);
+        view.setCompoundDrawablePadding(parent.getContext().getResources().getDimensionPixelSize(R.dimen._8sdp));
         return row;
     }
 
