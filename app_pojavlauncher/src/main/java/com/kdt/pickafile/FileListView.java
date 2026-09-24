@@ -9,6 +9,7 @@ import com.ipaulpro.afilechooser.*;
 import java.io.*;
 import java.util.*;
 import net.kdt.pojavlaunch.*;
+import git.artdeell.mojo.R;
 import android.os.*;
 
 public class FileListView extends LinearLayout
@@ -74,6 +75,10 @@ public class FileListView extends LinearLayout
         setOrientation(VERTICAL);
 
         mainLv = new ListView(context);
+        mainLv.setBackgroundResource(R.drawable.a_background);
+        mainLv.setDivider(null);
+        mainLv.setDividerHeight(0);
+        mainLv.setPadding(getResources().getDimensionPixelSize(R.dimen._8sdp), getResources().getDimensionPixelSize(R.dimen._8sdp), getResources().getDimensionPixelSize(R.dimen._8sdp), getResources().getDimensionPixelSize(R.dimen._8sdp));
 
         mainLv.setOnItemClickListener((p1, p2, p3, p4) -> {
             // TODO: Implement this method
