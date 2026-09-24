@@ -396,7 +396,9 @@ public final class Tools {
                         }
                     })
                     .setCancelable(!exitIfOk);
-            builder.show();
+            AlertDialog dialog = builder.create();
+            styleADialog(dialog);
+            dialog.show();
         };
 
         if (ctx instanceof Activity) {
@@ -869,8 +871,22 @@ public final class Tools {
 
     }
 
+    private static void styleADialog(AlertDialog dialog) {
+        if (dialog.getWindow() != null) dialog.getWindow().setBackgroundDrawableResource(R.drawable.a_dialog);
+        TextView title = dialog.findViewById(androidx.appcompat.R.id.alertTitle);
+        TextView message = dialog.findViewById(android.R.id.message);
+        TextView positive = dialog.findViewById(android.R.id.button1);
+        TextView negative = dialog.findViewById(android.R.id.button2);
+        TextView neutral = dialog.findViewById(android.R.id.button3);
+        if (title != null) title.setTextColor(dialog.getContext().getColor(R.color.primary_text));
+        if (message != null) message.setTextColor(dialog.getContext().getColor(R.color.secondary_text));
+        if (positive != null) { positive.setTextColor(dialog.getContext().getColor(R.color.a_accent_text)); positive.setAllCaps(false); }
+        if (negative != null) { negative.setTextColor(dialog.getContext().getColor(R.color.secondary_text)); negative.setAllCaps(false); }
+        if (neutral != null) { neutral.setTextColor(dialog.getContext().getColor(R.color.secondary_text)); neutral.setAllCaps(false); }
+    }
+
     public static void dialogForceClose(Context ctx) {
-        new android.app.AlertDialog.Builder(ctx)
+        AlertDialog dialog = new AlertDialog.Builder(ctx)
                 .setMessage(R.string.mcn_exit_confirm)
                 .setNegativeButton(android.R.string.cancel, null)
                 .setPositiveButton(android.R.string.ok, (p1, p2) -> {
@@ -880,7 +896,9 @@ public final class Tools {
                     } catch (Throwable th) {
                         Log.w(Tools.APP_NAME, "Could not enable System.exit() method!", th);
                     }
-                }).show();
+                }).create();
+        styleADialog(dialog);
+        dialog.show();
     }
 
     public static boolean checkFileValidness(DocumentsProvider provider, File file) {
