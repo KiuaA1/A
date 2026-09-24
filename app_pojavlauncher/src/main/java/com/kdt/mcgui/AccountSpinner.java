@@ -353,10 +353,12 @@ public class AccountSpinner extends AppCompatSpinner implements LoginListener, A
         }
 
         private void showDeleteDialog(Context context, int position) {
+            Resources resources = context.getResources();
+            Resources.Theme theme = context.getTheme();
             AlertDialog dialog = new AlertDialog.Builder(context)
                     .setMessage(R.string.warning_remove_account)
                     .setPositiveButton(android.R.string.cancel, null)
-                    .setNeutralButton(R.string.global_delete, (dialog, which) -> {
+                    .setNeutralButton(R.string.global_delete, (unusedDialog, which) -> {
                         Account account = getItem(position);
                         Accounts.delete(account);
                         reload();
