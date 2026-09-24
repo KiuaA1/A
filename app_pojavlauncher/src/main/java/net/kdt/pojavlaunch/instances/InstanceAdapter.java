@@ -1,13 +1,12 @@
 package net.kdt.pojavlaunch.instances;
 
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import androidx.core.graphics.ColorUtils;
+import androidx.core.content.ContextCompat;
 
 import git.artdeell.mojo.R;
 
@@ -94,9 +93,9 @@ public class InstanceAdapter extends BaseAdapter {
 
         // Set selected background if needed
         if(idx == mSelectionIndex && displaySelection) {
-            extendedTextView.setBackgroundColor(ColorUtils.setAlphaComponent(Color.WHITE, 60));
+            extendedTextView.setBackgroundResource(R.drawable.a_surface_pressed);
         }else {
-            extendedTextView.setBackgroundColor(Color.TRANSPARENT);
+            extendedTextView.setBackgroundResource(R.drawable.a_surface);
         }
     }
 
