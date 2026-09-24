@@ -40,6 +40,9 @@ public class LauncherMenuButton extends ExtendedButton {
         setGravity(Gravity.CENTER_VERTICAL);
 
         setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(R.dimen._12ssp));
+        setTextColor(ResourcesCompat.getColorStateList(resources, R.color.primary_text, getContext().getTheme()));
+        setAllCaps(false);
+        setBackground(ResourcesCompat.getDrawable(resources, R.drawable.a_sidebar_item, getContext().getTheme()));
 
         // Set drawable size
         int[] sizes = getExtendedViewData().getSizeCompounds();
