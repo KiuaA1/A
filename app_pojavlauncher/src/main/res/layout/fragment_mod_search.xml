@@ -1,12 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
- android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@drawable/a_background" android:padding="@dimen/_14sdp">
- <LinearLayout android:id="@+id/search_mod_overlay" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="@dimen/_6sdp" android:background="@drawable/a_card">
-  <EditText android:id="@+id/search_mod_edittext" android:layout_width="0dp" android:layout_height="@dimen/_48sdp" android:layout_weight="1" android:hint="@string/hint_search_modpack" android:inputType="textPersonName" android:paddingHorizontal="@dimen/_12sdp" android:textColor="@color/primary_text" android:textColorHint="@color/secondary_text" android:background="@drawable/a_outline_button"/>
-  <ImageButton android:id="@+id/search_mod_filter" android:layout_width="@dimen/_48sdp" android:layout_height="@dimen/_48sdp" android:layout_marginStart="@dimen/_6sdp" android:background="@drawable/a_outline_button" android:src="@drawable/ic_filter" android:tint="@color/primary_text" android:padding="@dimen/_12sdp"/>
- </LinearLayout>
- <ProgressBar android:id="@+id/search_mod_progressbar" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:indeterminate="true" android:visibility="gone"/>
- <androidx.recyclerview.widget.RecyclerView android:id="@+id/search_mod_list" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:clipToPadding="false" android:paddingTop="@dimen/_10sdp"/>
- <TextView android:id="@+id/search_mod_status_text" android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:padding="@dimen/_12sdp" android:textColor="@color/secondary_text" android:visibility="gone"/>
- <com.kdt.mcgui.MineButton android:id="@+id/mineButton_import_local_modpack" android:layout_width="match_parent" android:layout_height="@dimen/_48sdp" android:layout_marginTop="@dimen/_10sdp" android:text="@string/import_local_modpack" android:background="@drawable/a_primary_button" android:textColor="@color/a_accent_text"/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/a_background">
+
+    <LinearLayout
+        android:id="@+id/search_mod_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/_18sdp"
+        android:paddingEnd="@dimen/_18sdp"
+        android:paddingTop="@dimen/_12sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:background="@drawable/a_card">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:id="@+id/search_mod_back"
+                android:layout_width="@dimen/_48sdp"
+                android:layout_height="@dimen/_48sdp"
+                android:background="@drawable/a_outline_button"
+                android:src="@drawable/ic_px_arrow_left"
+                android:tint="@color/primary_text"
+                android:contentDescription="@string/back" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/_12sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="STOREFRONT  ·  MODPACKS"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="@dimen/_10ssp"
+                    android:letterSpacing="0.18"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Modpacks"
+                    style="@style/AHeader" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/mineButton_import_local_modpack"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_40sdp"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingStart="@dimen/_14sdp"
+                android:paddingEnd="@dimen/_14sdp"
+                android:text="@string/import_local_modpack"
+                android:textColor="@color/a_accent_text"
+                android:textSize="@dimen/_10ssp"
+                android:background="@drawable/a_outline_button" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_56sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/_14sdp"
+            android:paddingEnd="@dimen/_6sdp"
+            android:background="@drawable/a_search">
+
+            <ImageView
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:src="@drawable/ic_search"
+                android:tint="@color/secondary_text" />
+
+            <EditText
+                android:id="@+id/search_mod_edittext"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="@string/hint_search_modpack"
+                android:inputType="textPersonName"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:textColor="@color/primary_text"
+                android:textColorHint="@color/secondary_text"
+                android:textSize="@dimen/_14ssp" />
+
+            <ImageButton
+                android:id="@+id/search_mod_filter"
+                android:layout_width="@dimen/_44sdp"
+                android:layout_height="@dimen/_44sdp"
+                android:background="@drawable/a_outline_button"
+                android:src="@drawable/ic_filter"
+                android:tint="@color/primary_text"
+                android:padding="@dimen/_10sdp"
+                android:contentDescription="@string/filter" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/search_mod_progressbar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_2sdp"
+        android:indeterminate="true"
+        android:progressTint="@color/a_accent"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_mod_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/_18sdp"
+        android:paddingEnd="@dimen/_18sdp"
+        android:paddingTop="@dimen/_14sdp"
+        android:paddingBottom="@dimen/_14sdp" />
+
+    <TextView
+        android:id="@+id/search_mod_status_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/_12sdp"
+        android:textColor="@color/secondary_text"
+        android:visibility="gone" />
+
 </LinearLayout>
