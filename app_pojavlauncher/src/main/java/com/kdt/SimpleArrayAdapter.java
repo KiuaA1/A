@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import git.artdeell.mojo.R;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -57,7 +59,7 @@ public class SimpleArrayAdapter<T> extends BaseAdapter {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         if(convertView == null){
-            convertView = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
+            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_a_drawer_action, parent, false);
         }
 
         TextView v = (TextView) convertView;
