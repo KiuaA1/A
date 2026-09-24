@@ -49,6 +49,9 @@ public class LoggerView extends ConstraintLayout {
         inflate(getContext(), R.layout.view_logger, this);
         mLogTextView = findViewById(R.id.content_log_view);
         mLogTextView.setTypeface(Typeface.MONOSPACE);
+        mLogTextView.setTextColor(getContext().getColor(R.color.primary_text));
+        mLogTextView.setBackgroundResource(R.drawable.a_surface);
+        mLogTextView.setPadding(getResources().getDimensionPixelSize(R.dimen._12sdp), getResources().getDimensionPixelSize(R.dimen._10sdp), getResources().getDimensionPixelSize(R.dimen._12sdp), getResources().getDimensionPixelSize(R.dimen._10sdp));
         //TODO clamp the max text so it doesn't go oob
         mLogTextView.setMaxLines(Integer.MAX_VALUE);
         mLogTextView.setEllipsize(null);
@@ -68,6 +71,8 @@ public class LoggerView extends ConstraintLayout {
                     }
                 });
         mLogToggle.setChecked(false);
+        mLogToggle.setTextColor(getContext().getColor(R.color.primary_text));
+        mLogToggle.setAllCaps(false);
 
         // Remove the loggerView from the user View
         ImageButton cancelButton = findViewById(R.id.log_view_cancel);
