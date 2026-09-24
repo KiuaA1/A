@@ -6,7 +6,7 @@
         android:id="@+id/top_log_view"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="#555555"
+        android:background="@drawable/a_card"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="25dp"
         android:text="@string/log_view_label_log_output"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/primary_text" android:textSize="@dimen/_14ssp" android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/top_log_view"
         app:layout_constraintStart_toStartOf="@+id/top_log_view"
         app:layout_constraintTop_toTopOf="parent" />
@@ -57,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:alpha="0.8"
-        android:background="#000000"
+        android:background="@drawable/a_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_log_view">
 
