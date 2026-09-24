@@ -5,7 +5,7 @@ import android.graphics.BlendMode;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.drawable.ColorDrawable;
+
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
@@ -37,7 +37,7 @@ public class TextProgressBar extends ProgressBar {
         setProgressDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.view_text_progressbar, null));
         setProgress(35);
         mTextPaint = new Paint();
-        mTextPaint.setColor(Color.WHITE);
+        mTextPaint.setColor(getResources().getColor(R.color.primary_text));
         mTextPaint.setFlags(Paint.FAKE_BOLD_TEXT_FLAG);
         mTextPaint.setAntiAlias(true);
     }
