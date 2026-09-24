@@ -269,12 +269,27 @@ public class AWTActivity extends BaseActivity implements View.OnTouchListener {
     }
 
     private void finalErrorDialog(CharSequence msg) {
-        runOnUiThread(()-> new AlertDialog.Builder(this)
-                .setTitle(R.string.global_error)
-                .setMessage(msg)
-                .setPositiveButton(android.R.string.ok, (d,w)->this.finish())
-                .setCancelable(false)
-                .show());
+        runOnUiThread(() -> {
+            AlertDialog dialog = new AlertDialog.Builder(this)
+                    .setTitle(R.string.global_error)
+                    .setMessage(msg)
+                    .setPositiveButton(android.R.string.ok, (d,w)->this.finish())
+                    .setCancelable(false)
+                    .create();
+            dialog.setOnShowListener(d -> {
+                if (dialog.getWindow() != null) dialog.getWindow().setBackgroundDrawableResource(R.drawable.a_dialog);
+                android.widget.TextView title = dialog.findViewById(androidx.appcompat.R.id.alertTitle);
+                android.widget.TextView message = dialog.findViewById(android.R.id.message);
+                if (title != null) title.setTextColor(getColor(R.color.primary_text));
+                if (message != null) message.setTextColor(getColor(R.color.secondary_text));
+                android.widget.Button positive = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                if (positive != null) {
+                    positive.setTextColor(getColor(R.color.a_accent_text));
+                    positive.setAllCaps(false);
+                }
+            });
+            dialog.show();
+        });
     }
 
     @Override
