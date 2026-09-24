@@ -4,6 +4,9 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.graphics.Color;
+import androidx.core.content.ContextCompat;
+import git.artdeell.mojo.R;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListAdapter;
 import android.widget.TextView;
@@ -78,6 +81,11 @@ public class BTAVersionListAdapter extends BaseExpandableListAdapter implements 
     public View getGroupView(int i, boolean b, View convertView, ViewGroup viewGroup) {
         if(convertView == null)
             convertView = mLayoutInflater.inflate(android.R.layout.simple_expandable_list_item_1, viewGroup, false);
+        TextView styled = (TextView) convertView;
+        styled.setTextColor(ContextCompat.getColor(mLayoutInflater.getContext(), R.color.primary_text));
+        styled.setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, mLayoutInflater.getContext().getResources().getDimension(R.dimen._13ssp));
+        styled.setPadding(mLayoutInflater.getContext().getResources().getDimensionPixelSize(R.dimen._14sdp), mLayoutInflater.getContext().getResources().getDimensionPixelSize(R.dimen._10sdp), mLayoutInflater.getContext().getResources().getDimensionPixelSize(R.dimen._14sdp), mLayoutInflater.getContext().getResources().getDimensionPixelSize(R.dimen._10sdp));
+        styled.setBackgroundResource(R.drawable.a_list_item);
 
         ((TextView) convertView).setText((String)getGroup(i));
 
@@ -88,6 +96,11 @@ public class BTAVersionListAdapter extends BaseExpandableListAdapter implements 
     public View getChildView(int i, int i1, boolean b, View convertView, ViewGroup viewGroup) {
         if(convertView == null)
             convertView = mLayoutInflater.inflate(android.R.layout.simple_expandable_list_item_1, viewGroup, false);
+        TextView styled = (TextView) convertView;
+        styled.setTextColor(ContextCompat.getColor(mLayoutInflater.getContext(), R.color.primary_text));
+        styled.setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, mLayoutInflater.getContext().getResources().getDimension(R.dimen._13ssp));
+        styled.setPadding(mLayoutInflater.getContext().getResources().getDimensionPixelSize(R.dimen._14sdp), mLayoutInflater.getContext().getResources().getDimensionPixelSize(R.dimen._10sdp), mLayoutInflater.getContext().getResources().getDimensionPixelSize(R.dimen._14sdp), mLayoutInflater.getContext().getResources().getDimensionPixelSize(R.dimen._10sdp));
+        styled.setBackgroundResource(R.drawable.a_list_item);
         ((TextView) convertView).setText(getChild(i,i1).versionName);
         return convertView;
     }
