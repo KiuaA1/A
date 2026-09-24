@@ -28,7 +28,7 @@
                 android:background="@drawable/a_outline_button"
                 android:src="@drawable/ic_px_arrow_left"
                 android:tint="@color/primary_text"
-                android:contentDescription="@string/global_back" />
+                android:contentDescription="Back" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -104,7 +104,7 @@
                 android:src="@drawable/ic_filter"
                 android:tint="@color/primary_text"
                 android:padding="@dimen/_10sdp"
-                android:contentDescription="@string/filter" />
+                android:contentDescription="Filter" />
         </LinearLayout>
     </LinearLayout>
 
