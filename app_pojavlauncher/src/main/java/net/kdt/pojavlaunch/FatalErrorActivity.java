@@ -43,7 +43,7 @@ public class FatalErrorActivity extends AppCompatActivity {
 
     private void styleDialog(AlertDialog dialog) {
         if (dialog.getWindow() != null) dialog.getWindow().setBackgroundDrawableResource(R.drawable.a_dialog);
-        TextView title = dialog.findViewById(android.R.id.alertTitle);
+        TextView title = dialog.findViewById(androidx.appcompat.R.id.alertTitle);
         TextView message = dialog.findViewById(android.R.id.message);
         if (title != null) title.setTextColor(getColor(R.color.primary_text));
         if (message != null) message.setTextColor(getColor(R.color.secondary_text));
