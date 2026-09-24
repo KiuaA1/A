@@ -47,16 +47,19 @@ public class MultiRTConfigDialog {
             if (title != null) title.setTextColor(activity.getColor(R.color.primary_text));
             Button positive = mDialog.getButton(AlertDialog.BUTTON_POSITIVE);
             Button neutral = mDialog.getButton(AlertDialog.BUTTON_NEUTRAL);
-            if (positive != null) { positive.setTextColor(activity.getColor(R.color.a_accent_text)); positive.setAllCaps(false); }
-            if (neutral != null) { neutral.setTextColor(activity.getColor(R.color.secondary_text)); neutral.setAllCaps(false); }
-            // Custom button behavior without dismiss
-        mDialog.setOnShowListener(dialog -> {
-            Button button = ((AlertDialog) dialog).getButton(AlertDialog.BUTTON_NEUTRAL);
-            button.setOnClickListener(view -> {
-                boolean isEditing = !adapter.getIsEditing();
-                adapter.setIsEditing(isEditing);
-                button.setText(isEditing ? R.string.multirt_config_setdefault : R.string.multirt_delete_runtime);
-            });
+            if (positive != null) {
+                positive.setTextColor(activity.getColor(R.color.a_accent_text));
+                positive.setAllCaps(false);
+            }
+            if (neutral != null) {
+                neutral.setTextColor(activity.getColor(R.color.secondary_text));
+                neutral.setAllCaps(false);
+                neutral.setOnClickListener(view -> {
+                    boolean isEditing = !adapter.getIsEditing();
+                    adapter.setIsEditing(isEditing);
+                    neutral.setText(isEditing ? R.string.multirt_config_setdefault : R.string.multirt_delete_runtime);
+                });
+            }
         });
     }
 }
