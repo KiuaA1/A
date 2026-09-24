@@ -17,6 +17,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -64,7 +66,7 @@ public class AccountSpinner extends AppCompatSpinner implements LoginListener, A
 
         @Override
         public boolean onValueSet(String key, @NonNull String value) {
-            mLoginBarPaint.setColor(getResources().getColor(R.color.minebutton_color));
+            mLoginBarPaint.setColor(getResources().getColor(R.color.a_accent));
             BackgroundLogin backgroundLogin = mAuthType.createAuth();
             backgroundLogin.createAccount(AccountSpinner.this, value);
             return false;
@@ -351,7 +353,7 @@ public class AccountSpinner extends AppCompatSpinner implements LoginListener, A
         }
 
         private void showDeleteDialog(Context context, int position) {
-            new AlertDialog.Builder(context)
+            AlertDialog dialog = new AlertDialog.Builder(context)
                     .setMessage(R.string.warning_remove_account)
                     .setPositiveButton(android.R.string.cancel, null)
                     .setNeutralButton(R.string.global_delete, (dialog, which) -> {
@@ -359,7 +361,20 @@ public class AccountSpinner extends AppCompatSpinner implements LoginListener, A
                         Accounts.delete(account);
                         reload();
                     })
-                    .show();
+                    .create();
+            dialog.show();
+            if (dialog.getWindow() != null) {
+                dialog.getWindow().setBackgroundDrawableResource(R.drawable.a_dialog);
+            }
+            TextView message = dialog.findViewById(android.R.id.message);
+            if (message != null) message.setTextColor(ResourcesCompat.getColorStateList(resources, R.color.primary_text, theme));
+            Button cancel = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+            Button delete = dialog.getButton(AlertDialog.BUTTON_NEUTRAL);
+            if (cancel != null) cancel.setTextColor(resources.getColor(R.color.secondary_text));
+            if (delete != null) {
+                delete.setTextColor(resources.getColor(R.color.a_accent_text));
+                delete.setAllCaps(false);
+            }
         }
     }
 }
