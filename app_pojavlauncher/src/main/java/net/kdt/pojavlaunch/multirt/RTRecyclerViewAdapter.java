@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import androidx.core.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -105,11 +106,25 @@ public class RTRecyclerViewAdapter extends RecyclerView.Adapter<RTRecyclerViewAd
                 if (mCurrentRuntime == null) return;
 
                 if(MultiRTUtils.getRuntimes().size() < 2) {
-                    new AlertDialog.Builder(mContext)
+                    AlertDialog dialog = new AlertDialog.Builder(mContext)
                             .setTitle(R.string.global_error)
                             .setMessage(R.string.multirt_config_removeerror_last)
                             .setPositiveButton(android.R.string.ok,(adapter, which)->adapter.dismiss())
-                            .show();
+                            .create();
+                    dialog.setOnShowListener(ignored -> {
+                        if (dialog.getWindow() != null)
+                            dialog.getWindow().setBackgroundDrawableResource(R.drawable.a_dialog);
+                        TextView title = dialog.findViewById(android.R.id.alertTitle);
+                        if (title != null) title.setTextColor(ContextCompat.getColor(mContext, R.color.primary_text));
+                        TextView message = dialog.findViewById(android.R.id.message);
+                        if (message != null) message.setTextColor(ContextCompat.getColor(mContext, R.color.secondary_text));
+                        Button positive = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                        if (positive != null) {
+                            positive.setTextColor(ContextCompat.getColor(mContext, R.color.a_accent_text));
+                            positive.setAllCaps(false);
+                        }
+                    });
+                    dialog.show();
                     return;
                 }
 
@@ -155,7 +170,7 @@ public class RTRecyclerViewAdapter extends RecyclerView.Adapter<RTRecyclerViewAd
                 mFullJavaVersionTextView.setText(mContext.getString(R.string.multirt_runtime_incompatiblearch, runtime.arch));
             }
             mJavaVersionTextView.setText(runtime.name);
-            mFullJavaVersionTextView.setTextColor(Color.RED);
+            mFullJavaVersionTextView.setTextColor(ContextCompat.getColor(mContext, R.color.a_accent_text));
             mSetDefaultButton.setVisibility(View.GONE);
         }
 
