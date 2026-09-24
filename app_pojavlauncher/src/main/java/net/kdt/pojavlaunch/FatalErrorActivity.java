@@ -43,6 +43,20 @@ public class FatalErrorActivity extends AppCompatActivity {
 			})
 			.setCancelable(false)
 			.show();
+    }
+
+    private void styleDialog(AlertDialog dialog) {
+        if (dialog.getWindow() != null) dialog.getWindow().setBackgroundDrawableResource(R.drawable.a_dialog);
+        android.widget.TextView title = dialog.findViewById(android.R.id.alertTitle);
+        android.widget.TextView message = dialog.findViewById(android.R.id.message);
+        if (title != null) title.setTextColor(getColor(R.color.primary_text));
+        if (message != null) message.setTextColor(getColor(R.color.secondary_text));
+        for (int id : new int[]{android.R.id.button1, android.R.id.button2, android.R.id.button3}) {
+            android.widget.Button b = dialog.findViewById(id);
+            if (b != null) { b.setTextColor(getColor(R.color.a_accent_text)); b.setAllCaps(false); }
+        }
+    }
+
 	}
 
 	public static void showError(Context ctx, String savePath, boolean storageAllow, Throwable th) {
