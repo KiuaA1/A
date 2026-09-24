@@ -25,7 +25,15 @@ public class VersionSelectorDialog {
 
         expandableListView.setAdapter(adapter);
         builder.setView(expandableListView);
-        AlertDialog dialog = builder.show();
+        AlertDialog dialog = builder.create();
+        dialog.setOnShowListener(d -> {
+            if (dialog.getWindow() != null) dialog.getWindow().setBackgroundDrawableResource(R.drawable.a_dialog);
+            android.widget.Button positive = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+            android.widget.Button negative = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+            if (positive != null) { positive.setTextColor(context.getColor(R.color.a_accent_text)); positive.setAllCaps(false); }
+            if (negative != null) { negative.setTextColor(context.getColor(R.color.secondary_text)); negative.setAllCaps(false); }
+        });
+        dialog.show();
 
         expandableListView.setOnChildClickListener((parent, v1, groupPosition, childPosition, id) -> {
             String version = adapter.getChild(groupPosition, childPosition);
