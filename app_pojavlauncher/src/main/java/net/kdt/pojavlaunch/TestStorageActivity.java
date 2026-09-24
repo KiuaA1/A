@@ -53,7 +53,18 @@ public class TestStorageActivity extends Activity {
                 .setTitle(R.string.global_error)
                 .setMessage(R.string.toast_permission_denied)
                 .setPositiveButton(android.R.string.ok,(d,i)->requestStoragePermission())
-                .show();
+                .create();
+        mPermissionRequestDialog.getWindow(); 
+        mPermissionRequestDialog.setOnShowListener(d -> {
+            if (mPermissionRequestDialog.getWindow() != null) mPermissionRequestDialog.getWindow().setBackgroundDrawableResource(R.drawable.a_dialog);
+            android.widget.TextView title = mPermissionRequestDialog.findViewById(android.R.id.alertTitle);
+            android.widget.TextView message = mPermissionRequestDialog.findViewById(android.R.id.message);
+            android.widget.Button button = mPermissionRequestDialog.findViewById(android.R.id.button1);
+            if (title != null) title.setTextColor(ContextCompat.getColor(this, R.color.primary_text));
+            if (message != null) message.setTextColor(ContextCompat.getColor(this, R.color.secondary_text));
+            if (button != null) { button.setTextColor(ContextCompat.getColor(this, R.color.a_accent_text)); button.setAllCaps(false); }
+        });
+        mPermissionRequestDialog.show();
     }
 
     @Override
