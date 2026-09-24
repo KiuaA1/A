@@ -165,7 +165,8 @@ public class mcVersionSpinner extends ExtendedTextView {
         });
 
         mPopupWindow = new PopupWindow(mListView, MATCH_PARENT, getContext().getResources().getDimensionPixelOffset(R.dimen._184sdp));
-        mPopupWindow.setElevation(5);
+        mPopupWindow.setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.a_card, getContext().getTheme()));
+        mPopupWindow.setElevation(getContext().getResources().getDimension(R.dimen._8sdp));
         mPopupWindow.setClippingEnabled(false);
 
         // Block clicking outside of the popup window
