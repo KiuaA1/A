@@ -1,13 +1,6 @@
-<ListView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/list_view"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:scrollbars="vertical"
-    android:fadeScrollbars="false"
-    android:scrollbarThumbVertical="@color/minebutton_color"
-    android:paddingVertical="@dimen/_14sdp"
-    android:scrollbarSize="@dimen/padding_medium"
-    android:background="@color/background_bottom_bar"
-    android:divider="@null" />
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_view" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/a_background" android:paddingStart="@dimen/_8sdp" android:paddingEnd="@dimen/_8sdp"
+    android:paddingTop="@dimen/_10sdp" android:paddingBottom="@dimen/_10sdp"
+    android:divider="@null" android:dividerHeight="0dp" android:scrollbars="vertical"
+    android:fadeScrollbars="false" android:scrollbarThumbVertical="@color/minebutton_color" />
