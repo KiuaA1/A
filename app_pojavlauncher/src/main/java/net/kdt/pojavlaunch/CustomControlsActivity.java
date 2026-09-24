@@ -50,7 +50,16 @@ public class CustomControlsActivity extends BaseActivity implements EditorExitab
 		mPullDrawerButton.setOnClickListener(v -> mDrawerLayout.openDrawer(mDrawerNavigationView));
 		mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 
-		mDrawerNavigationView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.menu_customcontrol_customactivity)));
+		mDrawerNavigationView.setAdapter(new ArrayAdapter<String>(this, R.layout.item_a_drawer_action, getResources().getStringArray(R.array.menu_customcontrol_customactivity)) {
+			@Override
+			public android.view.View getView(int position, android.view.View convertView, android.view.ViewGroup parent) {
+				android.view.View view = super.getView(position, convertView, parent);
+				if (view instanceof android.widget.TextView) {
+					((android.widget.TextView) view).setAllCaps(false);
+				}
+				return view;
+			}
+		});
 		mDrawerNavigationView.setOnItemClickListener((parent, view, position, id) -> {
 			switch(position) {
 				case 0: mControlLayout.addControlButton(new ControlData("New")); break;
