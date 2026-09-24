@@ -1,40 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
+    android:paddingTop="@dimen/_10sdp">
 
     <TextView
         android:id="@+id/mod_extended_error_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/search_modpack_download_error"
-        android:textColor="#FFFF0000"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/_11ssp"
+        android:padding="@dimen/_10sdp"
+        android:background="@drawable/a_outline_button"
         android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatSpinner
         android:id="@+id/mod_extended_version_spinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="@dimen/_48sdp" android:background="@drawable/a_outline_button"
-        android:layout_marginVertical="@dimen/padding_moderate"
-        app:layout_constraintTop_toBottomOf="@+id/mod_extended_error_textview"
-        />
+        android:layout_height="@dimen/_48sdp"
+        android:background="@drawable/a_outline_button"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_2sdp"
+        app:layout_constraintTop_toBottomOf="@id/mod_extended_error_textview"
+        tools:prompt="Select version" />
 
     <com.kdt.mcgui.MineButton
         android:id="@+id/mod_extended_select_version_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_48sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:enabled="false"
         android:text="@string/generic_install"
-        android:layout_marginHorizontal="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mod_extended_version_spinner" android:background="@drawable/a_primary_button" />
+        android:textColor="@color/a_accent_text"
+        android:textSize="@dimen/_11ssp"
+        android:background="@drawable/a_primary_button"
+        app:layout_constraintTop_toBottomOf="@id/mod_extended_version_spinner"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
