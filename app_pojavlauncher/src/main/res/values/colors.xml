@@ -2,24 +2,30 @@
 <resources>
     <color name="control_button_color">#4CC4C4C4</color>
     <color name="control_button_pressed_color">#4D000000</color>
-    <color name="minebutton_color">#9AA7FF</color>
+    <color name="minebutton_color">#DDE4F0</color>
 
-    <color name="background_app">#0B0D12</color>
-    <color name="divider">#2A2F3A</color>
-    <color name="background_overlay">#20242D</color>
-    <color name="background_status_bar">#0B0D12</color>
-    <color name="background_bottom_bar">#10131A</color>
-    <color name="icon_outline_color">#F4F6FA</color>
-    <color name="primary_text">#F4F6FA</color>
-    <color name="secondary_text">#9EA6B3</color>
+    <color name="background_app">#090B10</color>
+    <color name="divider">#252A34</color>
+    <color name="background_overlay">#191C23</color>
+    <color name="background_status_bar">#090B10</color>
+    <color name="background_bottom_bar">#0C0F15</color>
+    <color name="icon_outline_color">#F3F5F8</color>
+    <color name="primary_text">#F2F3F7</color>
+    <color name="secondary_text">#9CA4B3</color>
 
-    <color name="a_background_top">#0A0C11</color>
-    <color name="a_background_bottom">#11151D</color>
-    <color name="a_surface">#151922</color>
-    <color name="a_surface_pressed">#1C212C</color>
-    <color name="a_border">#2A303B</color>
-    <color name="a_border_strong">#3A4250</color>
-    <color name="a_accent">#8F9BFF</color>
-    <color name="a_accent_pressed">#7885EA</color>
-    <color name="a_accent_text">#0A0C11</color>
+    <color name="a_background_top">#090B10</color>
+    <color name="a_background_bottom">#0D1016</color>
+    <color name="a_surface">#15181F</color>
+    <color name="a_surface_alt">#1B1E25</color>
+    <color name="a_surface_pressed">#222630</color>
+    <color name="a_border">#2B303B</color>
+    <color name="a_border_strong">#3C4351</color>
+    <color name="a_accent">#DDE4F0</color>
+    <color name="a_accent_pressed">#C6CFDE</color>
+    <color name="a_accent_text">#11141A</color>
+    <color name="a_nav_start">#28213B</color>
+    <color name="a_nav_end">#171329</color>
+    <color name="a_nav_border">#57477C</color>
+    <color name="a_nav_icon">#D9DCE6</color>
+    <color name="a_nav_icon_muted">#AEB2C0</color>
 </resources>
