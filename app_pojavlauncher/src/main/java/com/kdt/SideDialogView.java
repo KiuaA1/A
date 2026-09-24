@@ -19,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.core.content.ContextCompat;
 
 import git.artdeell.mojo.R;
 import net.kdt.pojavlaunch.Tools;
@@ -110,7 +111,8 @@ public abstract class SideDialogView {
         mDialogLayout.setTranslationZ(10);
 
         mDialogLayout.setVisibility(View.VISIBLE);
-        mDialogLayout.setBackground(ResourcesCompat.getDrawable(mDialogLayout.getResources(), R.drawable.background_control_editor, null));
+        mDialogLayout.setBackground(ResourcesCompat.getDrawable(mDialogLayout.getResources(), R.drawable.a_card, null));
+        styleAChrome();
 
         //TODO offset better according to view width
         mDialogLayout.setX(-mDialogLayout.getResources().getDimensionPixelOffset(R.dimen._280sdp));
@@ -122,6 +124,16 @@ public abstract class SideDialogView {
     }
 
     /** Destroy the layout, cleanup variables */
+    private void styleAChrome() {
+        mTitleTextview.setTextColor(ContextCompat.getColor(mParent.getContext(), R.color.primary_text));
+        mTitleTextview.setAllCaps(false);
+        for (Button button : new Button[]{mStartButton, mEndButton}) {
+            button.setAllCaps(false);
+            button.setTextColor(ContextCompat.getColorStateList(mParent.getContext(), R.color.primary_text));
+            button.setBackgroundResource(R.drawable.a_outline_button);
+        }
+    }
+
     private void deflateLayout() {
         if(mDialogLayout == null) {
             Log.w("SideDialogView", "Layout not inflated");
