@@ -16,7 +16,7 @@
         android:layout_height="0dp"
         android:gravity="center"
         android:textSize="@dimen/_12ssp"
-        android:textColor="@android:color/white"
+        android:textColor="@color/primary_text"
         android:paddingEnd="@dimen/_40sdp"
 
         tools:text="5 tasks in progress"
@@ -43,8 +43,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="gone"
-        android:paddingHorizontal="@dimen/padding_heavy"
-        android:paddingTop="@dimen/padding_heavy"
+        android:paddingHorizontal="@dimen/_14sdp"
+        android:paddingTop="@dimen/_14sdp"
         android:weightSum="3"
 
 
