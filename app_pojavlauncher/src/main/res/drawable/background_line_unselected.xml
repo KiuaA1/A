@@ -1,26 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <shape
-            android:shape="rectangle" >
-
-            <corners android:radius="@dimen/_2sdp" />
-
-
-            <stroke
-                android:width="@dimen/_2sdp"
-                android:color="#909090"/>
-        </shape>
-    </item>
-    <item android:drawable="?attr/selectableItemBackground"/>
-    <item>
-        <shape
-            android:shape="rectangle">
-
-            <padding
-                android:bottom="@dimen/padding_input_bottom"
-                android:top="@dimen/padding_input_top" />
-        </shape>
-    </item>
-</layer-list>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="@dimen/_8sdp" />
+    <solid android:color="@color/a_surface" />
+    <stroke android:width="@dimen/_1sdp" android:color="@color/a_border" />
+    <padding
+        android:bottom="@dimen/padding_input_bottom"
+        android:top="@dimen/padding_input_top" />
+</shape>
