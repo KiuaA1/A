@@ -26,7 +26,7 @@ public class DeleteConfirmDialogFragment extends DialogFragment {
         AlertDialog dialog = new AlertDialog.Builder(requireContext())
                 .setTitle(R.string.instance_delete)
                 .setMessage(R.string.instance_delete_confirmation)
-                .setPositiveButton(R.string.global_delete, (dialog, which) -> {
+                .setPositiveButton(R.string.global_delete, (unusedDialog, which) -> {
                     if (mInstance == null) return;
                     InstanceIconProvider.dropIcon(mInstance);
                     Tools.removeCurrentFragment(requireActivity());
