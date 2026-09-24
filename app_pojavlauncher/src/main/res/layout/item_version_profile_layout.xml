@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fr.spse.extended_view.ExtendedTextView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="?attr/selectableItemBackground"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/_52sdp"
-    android:paddingStart="@dimen/_17sdp"
-    app:drawableStartSize="@dimen/_36sdp"
-    app:drawableStartIntegerScaling="true"
-
-    android:gravity="center_vertical"
-    android:drawablePadding="@dimen/_19sdp"
-    tools:drawableStart="@drawable/ic_gamepad_pointer"
-    tools:text="FORGE - Forge-1.7.10-1664"
-    tools:ignore="RtlSymmetry">
-
-
-</fr.spse.extended_view.ExtendedTextView>
+<fr.spse.extended_view.ExtendedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="@dimen/_54sdp"
+    android:layout_marginBottom="@dimen/_6sdp" android:paddingStart="@dimen/_14sdp" android:paddingEnd="@dimen/_14sdp"
+    android:gravity="center_vertical" android:background="@drawable/a_card" android:textColor="@color/primary_text"
+    android:textSize="@dimen/_14ssp" android:drawablePadding="@dimen/_14sdp"
+    app:drawableStartSize="@dimen/_36sdp" app:drawableStartIntegerScaling="true"
+    tools:drawableStart="@drawable/ic_gamepad_pointer" tools:text="FORGE - Forge-1.7.10-1664" tools:ignore="RtlSymmetry" />
