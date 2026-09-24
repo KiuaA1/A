@@ -1,7 +1,6 @@
 package net.kdt.pojavlaunch.customcontrols.gamepad;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -155,7 +154,7 @@ public class GamepadMapperAdapter extends RecyclerView.Adapter<GamepadMapperAdap
     }
     
     public class ViewHolder extends RecyclerView.ViewHolder implements AdapterView.OnItemSelectedListener, View.OnClickListener, CompoundButton.OnCheckedChangeListener {
-        private static final int COLOR_ACTIVE_BUTTON = 0x2000FF00;
+        
         private final Context mContext;
         private final ImageView mButtonIcon;
         private final ImageView mExpansionIndicator;
@@ -235,7 +234,7 @@ public class GamepadMapperAdapter extends RecyclerView.Adapter<GamepadMapperAdap
             mAttachedButton = null;
         }
         private void setPressed(boolean pressed) {
-            itemView.setBackgroundColor(pressed ? COLOR_ACTIVE_BUTTON : Color.TRANSPARENT);
+            itemView.setBackgroundResource(pressed ? R.drawable.a_surface_pressed : R.drawable.a_surface);
         }
 
         private void updateKeycodeLabel() {
