@@ -41,7 +41,15 @@ public class MultiRTConfigDialog {
                 .setNeutralButton(R.string.multirt_delete_runtime, null)
                 .create();
 
-        // Custom button behavior without dismiss
+        mDialog.setOnShowListener(dialog -> {
+            if (mDialog.getWindow() != null) mDialog.getWindow().setBackgroundDrawableResource(R.drawable.a_dialog);
+            android.widget.TextView title = mDialog.findViewById(androidx.appcompat.R.id.alertTitle);
+            if (title != null) title.setTextColor(activity.getColor(R.color.primary_text));
+            Button positive = mDialog.getButton(AlertDialog.BUTTON_POSITIVE);
+            Button neutral = mDialog.getButton(AlertDialog.BUTTON_NEUTRAL);
+            if (positive != null) { positive.setTextColor(activity.getColor(R.color.a_accent_text)); positive.setAllCaps(false); }
+            if (neutral != null) { neutral.setTextColor(activity.getColor(R.color.secondary_text)); neutral.setAllCaps(false); }
+            // Custom button behavior without dismiss
         mDialog.setOnShowListener(dialog -> {
             Button button = ((AlertDialog) dialog).getButton(AlertDialog.BUTTON_NEUTRAL);
             button.setOnClickListener(view -> {
