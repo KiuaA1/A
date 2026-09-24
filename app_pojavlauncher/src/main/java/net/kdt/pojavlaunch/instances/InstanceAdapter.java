@@ -103,7 +103,7 @@ public class InstanceAdapter extends BaseAdapter {
         ExtendedTextView extendedTextView = (ExtendedTextView) v;
         extendedTextView.setCompoundDrawablesRelative(extra.icon, null, extendedTextView.getCompoundsDrawables()[2], null);
         extendedTextView.setText(extra.name);
-        extendedTextView.setBackgroundColor(Color.TRANSPARENT);
+        extendedTextView.setBackgroundResource(R.drawable.a_surface);
     }
 
     public void setView(View v, int index, boolean displaySelection) {
