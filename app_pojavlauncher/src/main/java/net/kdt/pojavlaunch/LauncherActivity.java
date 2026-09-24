@@ -11,7 +11,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.system.Os;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -300,25 +302,50 @@ public class LauncherActivity extends BaseActivity {
         for(String s : packages){
             Intent i = getPackageManager().getLaunchIntentForPackage(s);
             if(i == null) continue;
-            Tools.runOnUiThread(() ->
-                    new AlertDialog.Builder(this)
+            Tools.runOnUiThread(() -> {
+                AlertDialog dialog = new AlertDialog.Builder(this)
                         .setTitle(R.string.migration_progress_warning_title)
                         .setMessage(R.string.migration_notice)
                         .setPositiveButton(android.R.string.ok, (d, button) -> LauncherPreferences.DEFAULT_PREF.edit().putBoolean("migrationNotice", false).apply())
                         .setOnDismissListener(d -> LauncherPreferences.PREF_MIGRATION_NOTICE = false)
-                        .show());
+                        .create();
+                dialog.show();
+                styleADialog(dialog);
+            });
             break;
         }
     }
 
     private void showNotificationPermissionReasoning() {
-        new AlertDialog.Builder(this)
+        AlertDialog dialog = new AlertDialog.Builder(this)
                 .setTitle(R.string.notification_permission_dialog_title)
                 .setMessage(R.string.notification_permission_dialog_text)
                 .setPositiveButton(android.R.string.ok, (d, w) ->
                         askForPermission(33, Manifest.permission.POST_NOTIFICATIONS))
                 .setNegativeButton(android.R.string.cancel, (d, w)-> handleNoNotificationPermission())
-                .show();
+                .create();
+        dialog.show();
+        styleADialog(dialog);
+    }
+
+    private void styleADialog(AlertDialog dialog) {
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawableResource(R.drawable.a_dialog);
+        }
+        TextView title = dialog.findViewById(android.R.id.alertTitle);
+        TextView message = dialog.findViewById(android.R.id.message);
+        if (title != null) title.setTextColor(ContextCompat.getColor(this, R.color.primary_text));
+        if (message != null) message.setTextColor(ContextCompat.getColor(this, R.color.secondary_text));
+        Button positive = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+        Button negative = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+        if (positive != null) {
+            positive.setTextColor(ContextCompat.getColor(this, R.color.a_accent_text));
+            positive.setAllCaps(false);
+        }
+        if (negative != null) {
+            negative.setTextColor(ContextCompat.getColor(this, R.color.secondary_text));
+            negative.setAllCaps(false);
+        }
     }
 
     private void handleNoNotificationPermission() {
