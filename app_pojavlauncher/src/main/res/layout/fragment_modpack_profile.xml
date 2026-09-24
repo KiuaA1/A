@@ -34,7 +34,7 @@
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/_64sdp" android:layout_marginTop="@dimen/_16sdp" android:gravity="center_vertical" android:paddingStart="@dimen/_14sdp" android:paddingEnd="@dimen/_14sdp" android:background="@drawable/a_outline_button">
             <TextView android:layout_width="@dimen/_56sdp" android:layout_height="@dimen/_34sdp" android:gravity="center" android:text="TIP" android:textColor="@color/a_background_top" android:textSize="@dimen/_9ssp" android:textStyle="bold" android:background="@drawable/a_pill"/>
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="@dimen/_12sdp" android:text="Use .mrpack for Modrinth packs and .zip for exported packs from other launchers." android:textColor="@color:secondary_text" android:textSize="@dimen/_12ssp"/>
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="@dimen/_12sdp" android:text="Use .mrpack for Modrinth packs and .zip for exported packs from other launchers." android:textColor="@color/a_nav_icon_muted" android:textSize="@dimen/_12ssp"/>
         </LinearLayout>
     </LinearLayout>
 </com.kdt.DefocusableScrollView>
