@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@drawable/a_background" android:padding="@dimen/_14sdp">
  <TextView android:id="@+id/title_textview" android:layout_width="match_parent" android:layout_height="wrap_content" android:textAlignment="viewStart" android:text="@string/forge_dl_select_version" style="@style/AHeader"/>
- <ExpandableListView android:id="@+id/mod_dl_expandable_version_list" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="@dimen/_10sdp" android:background="@drawable/a_card" android:scrollbarThumbVertical="@color/minebutton_color"/>
+ <ExpandableListView android:id="@+id/mod_dl_expandable_version_list" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="@dimen/_10sdp" android:background="@drawable/a_card" android:scrollbarThumbVertical="@color/a_accent" android:clipToPadding="false" android:padding="@dimen/_6sdp"/>
  <LinearLayout android:id="@+id/mod_dl_retry_layout" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingVertical="@dimen/_10sdp" android:visibility="gone">
   <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/modloader_dl_failed_to_load_list" android:textColor="@color/secondary_text" android:textStyle="bold"/>
-  <Button android:id="@+id/forge_installer_retry_button" android:layout_width="wrap_content" android:layout_height="@dimen/_44sdp" android:text="@string/global_retry" android:background="@drawable/a_outline_button" android:textColor="@color/primary_text"/>
+  <Button android:id="@+id/forge_installer_retry_button" android:layout_width="wrap_content" android:layout_height="@dimen/_44sdp" android:text="@string/global_retry" android:background="@drawable/a_outline_button" android:textColor="@color/a_accent_text" android:textAllCaps="false"/>
  </LinearLayout>
  <ProgressBar android:id="@+id/mod_dl_list_progress" style="@style/Widget.AppCompat.ProgressBar.Horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:indeterminate="true"/>
 </LinearLayout>
