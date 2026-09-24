@@ -1,6 +1,5 @@
 package net.kdt.pojavlaunch.fragments;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -20,14 +19,9 @@ public class ModpackProfileSelectFragment extends Fragment {
     private final ActivityResultLauncher<String> mImportLauncher =
             registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
                 if (uri == null) return;
-                SearchModFragment fragment = new SearchModFragment();
-                getParentFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, fragment, SearchModFragment.TAG)
-                        .addToBackStack(TAG)
-                        .commit();
-                fragment.getViewLifecycleOwnerLiveData().observe(this, owner -> {
-                    if (owner != null) fragment.performLocalInstall(uri, requireContext(), requireContext().getContentResolver());
-                });
+                Bundle args = new Bundle();
+                args.putString(SearchModFragment.ARG_LOCAL_URI, uri.toString());
+                Tools.swapFragment(requireActivity(), SearchModFragment.class, SearchModFragment.TAG, args);
             });
 
     public ModpackProfileSelectFragment() {
