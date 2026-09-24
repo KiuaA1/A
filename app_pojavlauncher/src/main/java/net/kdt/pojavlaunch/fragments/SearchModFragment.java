@@ -253,6 +253,21 @@ public class SearchModFragment extends Fragment implements ModItemAdapter.Search
             });
         });
 
+        dialog.setOnShowListener(dialogInterface -> {
+            TextView selectedVersion = dialog.findViewById(R.id.search_mod_selected_mc_version_textview);
+            Button selectVersion = dialog.findViewById(R.id.search_mod_mc_version_button);
+            Button apply = dialog.findViewById(R.id.search_mod_apply_filters);
+            if (dialog.getWindow() != null) dialog.getWindow().setBackgroundDrawableResource(R.drawable.a_dialog);
+            if (selectedVersion != null) selectedVersion.setTextColor(requireContext().getColor(R.color.primary_text));
+            if (selectVersion != null) {
+                selectVersion.setTextColor(requireContext().getColor(R.color.primary_text));
+                selectVersion.setAllCaps(false);
+            }
+            if (apply != null) {
+                apply.setTextColor(requireContext().getColor(R.color.a_accent_text));
+                apply.setAllCaps(false);
+            }
+        });
         dialog.show();
     }
 }
