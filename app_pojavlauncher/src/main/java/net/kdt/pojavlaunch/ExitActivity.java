@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.Keep;
 import androidx.annotation.Nullable;
@@ -17,8 +19,7 @@ import git.artdeell.mojo.R;
 
 @Keep
 public class ExitActivity extends AppCompatActivity {
-
-    @SuppressLint("StringFormatInvalid") //invalid on some translations but valid on most, cant fix that atm
+    @SuppressLint("StringFormatInvalid")
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,38 +30,31 @@ public class ExitActivity extends AppCompatActivity {
             code = extras.getInt("code",-1);
             isSignal = extras.getBoolean("isSignal", false);
         }
-
         String message = isSignal ? getString(R.string.mcn_abort_title) : getString(R.string.mcn_exit_title, code);
-
-        new AlertDialog.Builder(this)
+        AlertDialog dialog = new AlertDialog.Builder(this)
                 .setMessage(message)
-                .setPositiveButton(R.string.main_share_logs, (dialog, which) -> shareLog(this))
-                .setOnDismissListener(dialog -> ExitActivity.this.finish())
-                .show();
+                .setPositiveButton(R.string.main_share_logs, (d, which) -> shareLog(this))
+                .setOnDismissListener(d -> ExitActivity.this.finish())
+                .create();
+        styleDialog(dialog);
+        dialog.show();
     }
 
     private void styleDialog(AlertDialog dialog) {
         if (dialog.getWindow() != null) dialog.getWindow().setBackgroundDrawableResource(R.drawable.a_dialog);
-        android.widget.TextView title = dialog.findViewById(android.R.id.alertTitle);
-        android.widget.TextView message = dialog.findViewById(android.R.id.message);
-        if (title != null) title.setTextColor(getColor(R.color.primary_text));
+        TextView message = dialog.findViewById(android.R.id.message);
         if (message != null) message.setTextColor(getColor(R.color.secondary_text));
-        for (int id : new int[]{android.R.id.button1, android.R.id.button2, android.R.id.button3}) {
-            android.widget.Button b = dialog.findViewById(id);
-            if (b != null) { b.setTextColor(getColor(R.color.a_accent_text)); b.setAllCaps(false); }
-        }
+        Button positive = dialog.findViewById(android.R.id.button1);
+        if (positive != null) { positive.setTextColor(getColor(R.color.a_accent_text)); positive.setAllCaps(false); }
     }
 
-    }
-
-    @SuppressWarnings("unused") //used by native jre_launcher_new
+    @SuppressWarnings("unused")
     public static void showExitMessage(Context ctx, int code, boolean isSignal) {
         if((!isSignal && code == 0)) {
             if(ctx != null) Tools.restartLauncherActivity(ctx);
             System.exit(0);
             return;
         }
-
         Object lock = new Object();
         Tools.runOnUiThread(()->{
             Intent i = new Intent(ctx,ExitActivity.class);
@@ -69,18 +63,11 @@ public class ExitActivity extends AppCompatActivity {
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             ctx.startActivity(i);
-            synchronized (lock) {
-                lock.notify();
-            }
+            synchronized (lock) { lock.notify(); }
         });
         synchronized (lock) {
-            try {
-                lock.wait();
-            } catch (InterruptedException e) {
-                Log.e("ExitActivity", "Waiting on lock failed: "+e);
-            }
+            try { lock.wait(); } catch (InterruptedException e) { Log.e("ExitActivity", "Waiting on lock failed: "+e); }
         }
         System.exit(0);
     }
-
 }
