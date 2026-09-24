@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import git.artdeell.mojo.R;
@@ -83,7 +84,7 @@ public class ProgressLayout extends ConstraintLayout implements View.OnClickList
         mLinearLayout = findViewById(R.id.progress_linear_layout);
         mTaskNumberDisplayer = findViewById(R.id.progress_textview);
         mFlipArrow = findViewById(R.id.progress_flip_arrow);
-        setBackgroundColor(getResources().getColor(R.color.background_bottom_bar));
+        setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.a_card, getContext().getTheme()));
         setOnClickListener(this);
     }
 
