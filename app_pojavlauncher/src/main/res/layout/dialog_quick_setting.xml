@@ -5,9 +5,9 @@
     android:id="@+id/edit_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingHorizontal="@dimen/padding_moderate"
-    android:paddingVertical="@dimen/padding_moderate"
-    app:layout_optimizationLevel="standard|dimensions|chains">
+    android:paddingHorizontal="@dimen/_16sdp"
+    android:paddingVertical="@dimen/_16sdp"
+    android:background="@drawable/a_card" app:layout_optimizationLevel="standard|dimensions|chains">
 
     <!-- Resolution settings -->
     <TextView
