@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListAdapter;
 import android.widget.TextView;
+import androidx.core.content.ContextCompat;
 
 import net.kdt.pojavlaunch.JVersionList;
 import git.artdeell.mojo.R;
@@ -107,6 +108,11 @@ public class VersionListAdapter extends BaseExpandableListAdapter implements Exp
             convertView = mLayoutInflater.inflate(android.R.layout.simple_expandable_list_item_1, parent, false);
 
         ((TextView) convertView).setText(mGroups[groupPosition]);
+        TextView styled = (TextView) convertView;
+        styled.setTextColor(ContextCompat.getColor(parent.getContext(), R.color.primary_text));
+        styled.setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, parent.getResources().getDimension(R.dimen._13ssp));
+        styled.setPadding(parent.getResources().getDimensionPixelSize(R.dimen._14sdp), parent.getResources().getDimensionPixelSize(R.dimen._10sdp), parent.getResources().getDimensionPixelSize(R.dimen._14sdp), parent.getResources().getDimensionPixelSize(R.dimen._10sdp));
+        styled.setBackgroundResource(R.drawable.a_list_item);
 
         return convertView;
     }
@@ -116,6 +122,11 @@ public class VersionListAdapter extends BaseExpandableListAdapter implements Exp
         if(convertView == null)
             convertView = mLayoutInflater.inflate(android.R.layout.simple_expandable_list_item_1, parent, false);
         ((TextView) convertView).setText(getChild(groupPosition, childPosition));
+        TextView styled = (TextView) convertView;
+        styled.setTextColor(ContextCompat.getColor(parent.getContext(), R.color.primary_text));
+        styled.setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, parent.getResources().getDimension(R.dimen._13ssp));
+        styled.setPadding(parent.getResources().getDimensionPixelSize(R.dimen._14sdp), parent.getResources().getDimensionPixelSize(R.dimen._10sdp), parent.getResources().getDimensionPixelSize(R.dimen._14sdp), parent.getResources().getDimensionPixelSize(R.dimen._10sdp));
+        styled.setBackgroundResource(R.drawable.a_list_item);
         return convertView;
     }
 
